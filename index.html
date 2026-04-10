@@ -697,6 +697,8 @@ function render() {
   document.getElementById('btnBack').style.display = currentPage === 0 ? 'none' : '';
 
   // Next button
+  const isLastPage = currentPage === PAGES.length - 1;
+  document.getElementById('btnNext').innerHTML = isLastPage ? '完成測驗 ✦' : '繼續 →';
   checkPageComplete();
 }
 
@@ -718,7 +720,7 @@ function checkPageComplete() {
   else btn.classList.remove('pulse');
 
   const isLast = currentPage === PAGES.length - 1;
-  btn.textContent = isLast ? '完成測驗 ✦' : '繼續 →';
+  btn.innerHTML = isLast ? '完成測驗 ✦' : '繼續 →';
 }
 
 function goNext() {
